@@ -1,0 +1,42 @@
+<h1 class="mt-5">Selectores alineados</h1>
+<hr>
+<form action="" [formGroup]="myForm" (ngSubmit)="save()">
+  <!-- Regions -->
+  <div class="row mb-3">
+    <div class="col">
+      <label class="form-label" for="">Continente</label>
+      <select class="form-control" name="" id="" formControlName="region">
+        <option value="" value="">-- Seleccione continente --</option>
+        <option value="" *ngFor="let region of regions" [value]="region | lowercase">{{ region }}</option>
+      </select>
+    </div>
+  </div>
+  <!-- Countries -->
+  <div class="row mb-3">
+    <div class="col">
+      <label class="form-label" for="">Pais</label>
+      <select class="form-control" name="" id="" formControlName="country">
+        <option value="" value="">-- Seleccione País --</option>
+        <option value="" *ngFor="let country of countries" [value]="country.alpha3Code">{{ country.name }}</option>
+      </select>
+    </div>
+  </div>
+    <!-- Fronteras -->
+    <div class="row mb-3">
+      <div class="col">
+        <label class="form-label" for="">Fronteras</label>
+        <select class="form-control" name="" id="" formControlName="border">
+          <option value="" value="">-- Seleccione el país fronterizo --</option>
+          <option value="" *ngFor="let border of borders" [value]="border.alpha3Code">{{ border.name }}</option>
+        </select>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary float-end" type="submit">Guardar</button>
+    </div>
+  </div>
+</form>
+<h2>Formulario</h2>
+<pre>Valid: {{ myForm.valid }}</pre>
+<pre>{{ myForm.value | json }}</pre>
